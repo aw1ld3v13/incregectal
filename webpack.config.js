@@ -12,6 +12,16 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, "build")
   },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, './dist')
+    },
+    // contentBase: path.resolve(__dirname, "./dist"),
+    hot: true,
+    proxy: {
+      // '/api/users': 'http://localhost:3000',
+    }
+  },
   module: {
     rules: [
       {
@@ -23,6 +33,7 @@ module.exports = {
             loader: require.resolve('babel-loader'),
             options: {
               plugins: [isDevelopment && require.resolve('react-refresh/babel')].filter(Boolean),
+              presets: ['@babel/preset-env', '@babel/preset-react']
             }
           }
         ]
@@ -34,15 +45,6 @@ module.exports = {
       }
     ]
   },
-  plugins: [[isDevelopment && new ReactRefreshWebpackPlugin()].filter(Boolean),],
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'public')
-    },
-    contentBase: path.resolve(__dirname, "./dist"),
-    hot: true,
-    proxy: {
-      '/api/users': 'http://localhost:3000',
-    }
-  }
+  plugins: [isDevelopment && new ReactRefreshWebpackPlugin()].filter(Boolean),
+  
 };
