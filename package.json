@@ -1,0 +1,19 @@
+{
+  "name": "incregectal",
+  "version": "1.0.0",
+  "description": "incremental gec game",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "gec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aw1ld3v13/incregectal.git"
+  },
+  "author": "aw1ld3v13",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aw1ld3v13/incregectal/issues"
+  },
+  "homepage": "https://github.com/aw1ld3v13/incregectal#readme"
+}
