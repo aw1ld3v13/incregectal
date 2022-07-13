@@ -1,0 +1,20 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const userSchema = new Schema({
+  username: {type: String, required: true},
+  // what does userdata look like, and what type of data is on it?
+  // userGecs to keep track of total
+  userGecs: {type: Number, required: true},
+  // userData to keep track of objects with numbers associated (i.e. generators, unlocks, and the like)
+  userData: {
+    isLaura: {type: Boolean},
+    isDylan: {type: Boolean},
+    prestigeCount: {type: Number}
+  }
+});
+
+// declares User model schema
+const User = mongoose.model('user', userSchema);
+// exports model
+module.exports;

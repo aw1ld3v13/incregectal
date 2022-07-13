@@ -19,7 +19,7 @@ module.exports = {
     // contentBase: path.resolve(__dirname, "./dist"),
     hot: true,
     proxy: {
-      // '/api/users': 'http://localhost:3000',
+      '/api/users': 'http://localhost:3000',
     }
   },
   module: {
