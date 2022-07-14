@@ -1,18 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// import React from 'react';
+// import PropTypes from 'prop-types';
 
-class Generators extends Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-      passive: 0
-    };
-  }
+// class Generators extends Component {
+//   constructor (props) {
+//     super(props);
+//     this.state = {
+//       passive: 0
+//     };
+//   }
 
-  componentDidMount() {}
+//   componentDidMount() {}
 
-}
+// }
 
 
 
-export default Generators;
+// export default Generators;

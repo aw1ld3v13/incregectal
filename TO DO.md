@@ -15,8 +15,10 @@
 2) basics
   a) frontend X
     - button + counter
-  b) backend
-    - Create: user w/ save data
+  b) backend 
+    - set up mongoDB X
+    - set up server architecture X
+    - Create: user w/ save data 
     - Read: check server for user data and change gamestate to match
     - Update: update user data (name, total gecs)
     - Delete: reset/wipe save data
@@ -26,7 +28,7 @@
   a) passive gec generators
     - frontend: clickable blocks, total trackers, passive generation adding to total, unlock @ certain total thresholds
     - backend: userdata keeps track of generators
-  b) gec aesthetics
+  b) gec aesthetics - reference advanced css/html unit
 
 
 CONSIDER:

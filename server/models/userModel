@@ -1,20 +1,39 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const MONGO_URI = 'mongodb+srv://user:123@incregectal-db.66xbi.mongodb.net/?retryWrites=true&w=majority';
+const bcrypt = require('bcryptjs');
+const SALT_WORK_FACTOR = 5;
 
+// connect to my db
+mongoose.connect(MONGO_URI, 
+  {
+    // solves deprecated url parser issue: https://mongoosejs.com/docs/5.x/docs/deprecations.html#the-usenewurlparser-option
+    useNewUrlParser: true, 
+    // timeout if the server can't connect within 30sec: https://mongoosejs.com/docs/5.x/docs/deprecations.html#useunifiedtopology 
+    useUnifiedTopology: true,
+    // name the db that our collections are part of
+    dbName: 'userbase'
+})
+
+.then(() => console.log('Connected to Mongo DB.'))
+.catch(err => console.log(err));
+
+// sets a schema for users
 const userSchema = new Schema({
-  username: {type: String, required: true},
-  // what does userdata look like, and what type of data is on it?
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
   // userGecs to keep track of total
-  userGecs: {type: Number, required: true},
+  gecs: { type: Number, required: true, default: 0 },
   // userData to keep track of objects with numbers associated (i.e. generators, unlocks, and the like)
+  // what does userdata look like, and what type of data is on it?
   userData: {
-    isLaura: {type: Boolean},
-    isDylan: {type: Boolean},
-    prestigeCount: {type: Number}
+    generators: { type: Array, count: [], default: [] },
+    prestige: { type: Number, default: 0 },
+    // required: true
   }
 });
 
 // declares User model schema
 const User = mongoose.model('user', userSchema);
 // exports model
-module.exports;
+module.exports = User;

@@ -1,1 +1,40 @@
-const models = require('../models/userModel')
+// const { models } = require('../models/userModel');
+const mongoose = require('mongoose');
+const User = require('../models/userModel');
+
+const userController = {};
+
+userController.getAllUsers = (req, res, next) => {
+  User.find({}, (err, users) => {
+    if (err) return next('Error in userController.getAllUsers: ' + JSON.stringify(err));
+    res.locals.users = users;
+    return next();
+  });
+};
+
+userController.createUser = (req, res, next) => {
+  const { username, password } = req.body;
+  User.create({
+    username, password, gecs
+  })
+    .then(inputDoc => {
+      res.locals.newUser = inputDoc;
+      return next();
+    })
+    .catch(err => {
+      return next({
+        log: `userController.createUser: ERROR: ${ err }`,
+        message: { err: 'Error occurred in userController.createUser - Check server logs for more details'}
+      });
+    });
+};
+
+// userController.updateUser = (req, res, next) => {
+
+// };
+
+// userController.deleteUser = (req, res, next) => {
+
+// };
+
+module.exports = userController;

@@ -19,7 +19,7 @@ module.exports = {
     // contentBase: path.resolve(__dirname, "./dist"),
     hot: true,
     proxy: {
-      '/api/users': 'http://localhost:3000',
+      '/api/': 'http://localhost:3000',
     }
   },
   module: {
@@ -45,6 +45,11 @@ module.exports = {
       }
     ]
   },
-  plugins: [isDevelopment && new ReactRefreshWebpackPlugin()].filter(Boolean),
-  
+  plugins: [
+    isDevelopment && new ReactRefreshWebpackPlugin(), 
+    new HtmlWebpackPlugin({
+      title: 'Development 123',
+      template: 'index.html'
+    }),
+  ].filter(Boolean),
 };

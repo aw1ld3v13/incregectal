@@ -1,33 +1,32 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const apiRouter = require('./routes/api');
+// const apiRouter = require('./routes/api');
 const PORT = 3000;
-const mongoose = require('mongoose');
-
-mongoose.connect('mongodb+srv://user:123@incregectal-db.66xbi.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
-mongoose.connection.once('open', () => {
-  console.log('Connected to Database');
-});
+const apiRouter = express.Router();
+const userController = require('./controllers/userController');
 
 // parse request body
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 
-const userRouter = express.Router;
-app.use('/users', userRouter);
+app.use('/client', express.static(path.resolve(__dirname, '../client')));
 
-// 
-app.get('/api/users', (req, res) => {
-  return res.status(200).send(userList);
+app.use('/api', apiRouter);
+
+// create a user in the db
+// userRouter
+
+apiRouter.post('/signup', userController.createUser, (req, res) => {
+  res.send( { users: res.locals.newUser })
 });
 
-// builds on build req
-// app.use('/build', express.static(path.join(__dirname, '../build')));
+// app.use('/api/signup', userController.userCreator, (req, res) => 
+//   res.status(200).json({ newUser: res.locals.newUser })
+// );
 
-// serve index.html on the route '/'
-// app.get('/', (req, res) => {
-//   return res.status(200).sendFile(path.join(__dirname, '../index.html'));
+// app.get('/api/users', (req, res) => {
+//   return res.status(200).send(userList);
 // });
 
 // catch-all route handler

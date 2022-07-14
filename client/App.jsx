@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
+import Generators from './components/Generators';
 // import Generators from './Generators';
-
-let valueStore = [];
 
 function getInitialState() {
   return {
@@ -30,8 +29,6 @@ class App extends Component {
       gecs
     });
   }
-
-  
 
   render() {
     // pull total gecs and click value from state
