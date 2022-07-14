@@ -1,0 +1,92 @@
+// $primary: #900;
+// $enable-shadows: true;
+// $prefix: "mo-";
+
+// @import "~bootstrap/scss/bootstrap";
+// @import 'bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+
+  .gecsBox {
+    margin: 3%;
+  };
+
+  .gecsBoxContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .gecButton {
+      background-color: rgb(255, 255, 255);
+      background-image: none;
+      border: 1px solid rgb(0, 0, 0);
+      border-radius: 4px;
+      box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+      box-sizing: border-box;
+      color: rgb(0, 0, 0);
+      cursor: pointer;
+      display: inline-block;
+      font-family: Impact, 'Arial Narrow Bold', sans-serif;
+      font-size: 30px;
+      font-weight: 400;
+      line-height: 20px;
+      margin: 0 5px 10px 0;
+      overflow: visible;
+      padding: 12px 40px;
+      text-align: center;
+      text-transform: none;
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      vertical-align: middle;
+      white-space: nowrap;
+    } 
+  }
+
+  .unlocks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .unlockButtons{
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+
+    button{
+      align-items: center;
+      background-color: #fff;
+      border: 2px solid #000;
+      box-sizing: border-box;
+      color: #000;
+      cursor: pointer;
+      display: inline-flex;
+      fill: #000;
+      font-family: Impact, 'Arial Narrow Bold', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      height: 60px;
+      justify-content: center;
+      letter-spacing: -.8px;
+      line-height: 20px;
+      min-width: 140px;
+      outline: 0;
+      padding: 0 17px;
+      text-align: center;
+      text-decoration: none;
+      transition: all .3s;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+
+    }
+  }
+};
+
+  
+
+
+

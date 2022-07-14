@@ -40,8 +40,22 @@ module.exports = {
       },
       {
         test: /.(css|scss)$/,
-        exclude: /node_modules/,
+        exclude: [/node_modules/, /client\/scss\/modules/],
         use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /.(css|scss)$/,
+        include: [/client\/scss\/modules/],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[name]__[local]___[hash:base64:5]'
+            },
+          },
+          'sass-loader'],
       }
     ]
   },
@@ -52,4 +66,8 @@ module.exports = {
       template: 'index.html'
     }),
   ].filter(Boolean),
-};
+  resolve: {
+    // Enable importing JS / JSX files without specifying their extension
+    extensions: ['.js', '.jsx'],
+  },
+}

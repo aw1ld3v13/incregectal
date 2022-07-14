@@ -1,12 +1,14 @@
+// import functionality from react
 import React from 'react';
-import { render } from 'react-dom';
-import App from './App.jsx';
-import { BrowserRouter } from 'react-router-dom'
+import ReactDOM from 'react-dom'; 
+import { BrowserRouter } from 'react-router-dom';
 
-// uncomment when ready for webpack to bundle styles
-import styles from './scss/application.scss';
+// import app
+import App from './App';
 
-render(
-  <App />,
-  document.getElementById('root')
-);
+// render the app
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById('app'));
